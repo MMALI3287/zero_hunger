@@ -77,3 +77,7 @@ F:\Asp . net\zero_hunger\zero_hunger\obj\Debug\zero_hunger.csproj.CoreCompileInp
 F:\Asp . net\zero_hunger\zero_hunger\obj\Debug\zero_hunger.csproj.CopyComplete
 F:\Asp . net\zero_hunger\zero_hunger\obj\Debug\zero_hunger.dll
 F:\Asp . net\zero_hunger\zero_hunger\obj\Debug\zero_hunger.pdb
+F:\Asp . net\zero_hunger\zero_hunger\bin\EntityFramework.dll
+F:\Asp . net\zero_hunger\zero_hunger\bin\EntityFramework.SqlServer.dll
+F:\Asp . net\zero_hunger\zero_hunger\bin\EntityFramework.xml
+F:\Asp . net\zero_hunger\zero_hunger\bin\EntityFramework.SqlServer.xml
