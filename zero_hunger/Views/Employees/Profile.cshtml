@@ -1,0 +1,42 @@
+﻿@model zero_hunger.EF.Employee
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_EmployeesLayout.cshtml";
+}
+
+<h2>Profile</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "PEdit", new { id = Model.id }, new { @class = "btn btn-default " })
+</p>

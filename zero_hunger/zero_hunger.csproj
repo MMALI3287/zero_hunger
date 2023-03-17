@@ -242,9 +242,21 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Restaurents\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_RestaurentsLayout.cshtml" />
+    <Content Include="Views\Restaurents\Index.cshtml" />
+    <Content Include="Views\Shared\_EmployeesLayout.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Restaurents\AddRequest.cshtml" />
+    <Content Include="Views\Restaurents\MyRequests.cshtml" />
+    <Content Include="Views\Restaurents\Edit.cshtml" />
+    <Content Include="Views\Restaurents\Profile.cshtml" />
+    <Content Include="Views\Restaurents\PEdit.cshtml" />
+    <Content Include="Views\Employees\ViewRequests.cshtml" />
+    <Content Include="Views\Employees\AcceptedRequests.cshtml" />
+    <Content Include="Views\Employees\Profile.cshtml" />
+    <Content Include="Views\Employees\PEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

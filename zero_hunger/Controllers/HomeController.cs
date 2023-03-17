@@ -41,6 +41,7 @@ namespace zero_hunger.Controllers
             var extUser=(from u in db.Registrations where u.username==model.username && u.password==model.password select u).SingleOrDefault();
             if (extUser != null)
             {
+                Session["Rid"]=extUser.id;
                 if (extUser.user_type.Equals("Admin"))
                 {
                     return RedirectToAction("Index","Admin");

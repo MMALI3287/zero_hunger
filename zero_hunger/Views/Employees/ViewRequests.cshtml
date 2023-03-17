@@ -1,0 +1,90 @@
+﻿@model IEnumerable<zero_hunger.EF.CollectRequest>
+
+@{
+    ViewBag.Title = "ViewRequest";
+    Layout = "~/Views/Shared/_EmployeesLayout.cshtml";
+}
+
+<h2>ViewRequest</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            Food Description
+        </th>
+        <th>
+            Quantity(Packets)
+        </th>
+        <th>
+            Max Preservation Upto
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Restaurent Name
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+            Manager Name
+        </th>
+        <th>
+            Contact Number
+        </th>
+        <th>Modify</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.food_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.max_preservation_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.collection_status)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant.location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant.supplier_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant.contact_number)
+            </td>
+
+            @{
+                if (item.collection_status.Equals("Pending"))
+                {
+                    <td>
+                        @Html.ActionLink("Accept", "Accept", new { id = item.id }, new { @class = "btn btn-default " })
+                    </td>
+                }
+                else
+                {
+                    <td>
+                    </td>
+
+                }
+            }
+
+        </tr>
+    }
+
+</table>

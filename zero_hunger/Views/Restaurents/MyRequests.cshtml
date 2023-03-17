@@ -1,0 +1,108 @@
+﻿@model IEnumerable<zero_hunger.EF.CollectRequest>
+
+@{
+    ViewBag.Title = "MyRequest";
+    Layout = "~/Views/Shared/_RestaurentsLayout.cshtml";
+}
+
+<h2>MyRequest</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            Food Description
+        </th>
+        <th>
+            Quantity(Packets)
+        </th>
+        <th>
+            Max Preservation Upto
+        </th>
+        <th>
+           Status
+        </th>
+        <th>
+            Accepted By
+        </th>
+        <th>
+            Contact number
+        </th>
+        <th>
+            Collection Time
+        </th>
+        <th>Modify</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.food_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.max_preservation_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.collection_status)
+        </td>
+
+
+        @{
+            if (item.collection_status.Equals("Collected") || item.collection_status.Equals("Delivered"))
+            {
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.collection_time)
+                </td>
+            }
+            else if (item.collection_status.Equals("Accepted"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employee.phone)
+                </td>
+                <td>----</td>
+            }
+            else
+            {
+                <td>----</td>
+                <td>----</td>
+                <td>----</td>
+
+            }
+        }
+
+        @{
+            if (item.collection_status.Equals("Pending"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-default " }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-default " })
+                </td>
+            }
+            else
+            {
+                <td>
+                </td>
+
+            }
+        }
+
+    </tr>
+}
+
+</table>
