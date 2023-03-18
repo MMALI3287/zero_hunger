@@ -1,0 +1,51 @@
+﻿@model IEnumerable<zero_hunger.EF.Employee>
+
+@{
+    ViewBag.Title = "ManageEmployees";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ManageEmployees</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Registration.username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Registration.username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EmpEdit", new { id=item.id }) |
+            @Html.ActionLink("Delete", "EmpDelete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

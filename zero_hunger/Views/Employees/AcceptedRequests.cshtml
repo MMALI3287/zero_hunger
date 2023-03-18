@@ -56,39 +56,60 @@
                 @Html.DisplayFor(modelItem => item.collection_status)
             </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Restaurant.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Restaurant.location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Restaurant.supplier_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Restaurant.contact_number)
-            </td>
+            @if (!item.restaurant_id.Equals(null))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant.location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant.supplier_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant.contact_number)
+                </td>
+            }
+            else
+            {
+                <td>Deleted User</td>
+                <td>Not Available</td>
+                <td>Not Available</td>
+                <td>Not Available</td>
 
+
+            }
             @{
-                if (item.collection_status.Equals("Accepted"))
+                if (!item.restaurant_id.Equals(null))
                 {
+
+                    if (item.collection_status.Equals("Accepted"))
+                    {
                         <td>
                             @Html.ActionLink("Collected", "Collected", new { id = item.id }, new { @class = "btn btn-default " }) |
                             @Html.ActionLink("Delivered", "Delivered", new { id = item.id }, new { @class = "btn btn-default " }) |
                             @Html.ActionLink("Cancel", "Cancel", new { id = item.id }, new { @class = "btn btn-default " })
 
                         </td>
-                }
-                else if (item.collection_status.Equals("Collected"))
-                {
-                    <td>
-                        @Html.ActionLink("Delivered", "Delivered", new { id = item.id }, new { @class = "btn btn-default " })
-                    </td>
+                    }
+                    else if (item.collection_status.Equals("Collected"))
+                    {
+                        <td>
+                            @Html.ActionLink("Delivered", "Delivered", new { id = item.id }, new { @class = "btn btn-default " })
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+
                 }
                 else
                 {
                     <td></td>
                 }
+
             }
 
         </tr>

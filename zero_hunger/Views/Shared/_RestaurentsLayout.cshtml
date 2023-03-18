@@ -8,24 +8,37 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-primary bg-primary">
         <div class="container">
-            @Html.ActionLink("Zero Hunger", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar-brand">
+                @Html.ActionLink("Zero Hunger", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Restaurents", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Add Request", "AddRequest", "Restaurents", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("My Requests", "MyRequests", "Restaurents", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Profile", "Profile", "Restaurents", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Log Out", "Logout", "Restaurents", new { area = "" }, new { @class = "nav-link" })</li>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        @Html.ActionLink("Home", "Index", "Restaurents", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Add Request", "AddRequest", "Restaurents", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("My Requests", "MyRequests", "Restaurents", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Profile", "Profile", "Restaurents", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Log Out", "Logout", "Restaurents", new { area = "" }, new { @class = "nav-link" })
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />

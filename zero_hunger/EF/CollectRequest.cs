@@ -21,7 +21,7 @@ namespace zero_hunger.EF
         public System.DateTime max_preservation_time { get; set; }
         public string collection_status { get; set; }
         public Nullable<int> collection_employee_id { get; set; }
-        public System.DateTime collection_time { get; set; }
+        public Nullable<System.DateTime> collection_time { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual Restaurant Restaurant { get; set; }

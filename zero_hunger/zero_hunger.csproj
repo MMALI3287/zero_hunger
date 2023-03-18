@@ -257,6 +257,12 @@
     <Content Include="Views\Employees\AcceptedRequests.cshtml" />
     <Content Include="Views\Employees\Profile.cshtml" />
     <Content Include="Views\Employees\PEdit.cshtml" />
+    <Content Include="Views\Admin\ManageEmployees.cshtml" />
+    <Content Include="Views\Admin\ManageRestaurents.cshtml" />
+    <Content Include="Views\Admin\ManageRequests.cshtml" />
+    <Content Include="Views\Admin\EmpEdit.cshtml" />
+    <Content Include="Views\Admin\ResEdit.cshtml" />
+    <Content Include="Views\Admin\ReqEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

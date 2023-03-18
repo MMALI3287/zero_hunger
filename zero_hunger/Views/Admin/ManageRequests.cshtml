@@ -1,0 +1,145 @@
+﻿@model IEnumerable<zero_hunger.EF.CollectRequest>
+
+@{
+    ViewBag.Title = "ManageRequests";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ManageRequests</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Restaurent Name
+        </th>
+
+        <th>
+            Food Description
+        </th>
+        <th>
+            Quantity(Packets)
+        </th>
+        <th>
+            Max Preservation Upto
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Accepted By
+        </th>
+      
+        <th>
+            Collection Time
+        </th>
+        <th>Modify</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @if (item.restaurant_id.Equals(null))
+            {
+                <td>
+                    Deleted User
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant.name)
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.food_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.max_preservation_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.collection_status)
+            </td>
+
+            @{
+                if (item.collection_status.Equals("Collected") || item.collection_status.Equals("Delivered"))
+                {
+                    if (item.collection_employee_id.Equals(null))
+                    {
+                        <td>
+                            Employee Fired
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.collection_time)
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Employee.name)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.collection_time)
+                        </td>
+                    }
+
+                }
+                else if (item.collection_status.Equals("Accepted"))
+                {
+                    if (item.collection_employee_id.Equals(null))
+                    {
+                        <td>
+                            Employee Fired
+                        </td>
+                        <td>----</td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Employee.name)
+                        </td>
+
+                        <td>----</td>
+                    }
+
+                }
+                else
+                {
+                    <td>----</td>
+                    <td>----</td>
+                }
+            }
+
+            @{
+                if (item.collection_employee_id.Equals(null) && item.collection_status.Equals("Accepted"))
+                {
+                    <td>
+                        @Html.ActionLink("Send Again", "pending", new { id = item.id }, new { @class = "btn btn-default " })
+                        @Html.ActionLink("Edit", "ReqEdit", new { id = item.id }, new { @class = "btn btn-default " })
+                        @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-default " })
+                    </td>
+                }
+                else if (!item.restaurant_id.Equals(null))
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "ReqEdit", new { id = item.id }, new { @class = "btn btn-default " })
+                        @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-default " })
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-default " })
+                    </td>  
+                }
+            }
+        </tr>
+    }
+
+</table>

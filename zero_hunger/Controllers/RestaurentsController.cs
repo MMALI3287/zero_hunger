@@ -46,7 +46,7 @@ namespace zero_hunger.Controllers
                 max_preservation_time = model.max_preservation_time,
                 collection_status = "Pending",
                 
-                collection_time = DateTime.Now
+                collection_time = DateTime.Now,
             };
             db.CollectRequests.Add(newRequest);
             db.SaveChanges();
