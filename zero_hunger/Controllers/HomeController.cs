@@ -73,46 +73,51 @@ namespace zero_hunger.Controllers
         public ActionResult SignUp(RegistrationClass model)
         {
             var db = new zero_hungerEntities2();
-            var user = new Registration()
+            var extUsername = (from u in db.Registrations where u.username == model.username select u).SingleOrDefault();
+            if(extUsername == null)
             {
-                username = model.username, password = model.password, user_type = model.user_type
-            };
-            db.Registrations.Add(user);
-            db.SaveChanges();
-            var rid=(from r in db.Registrations where r.username==model.username select r).SingleOrDefault();
-            if (model.user_type.Equals("Employees"))
-            {
-                var employee = new Employee()
+                var user = new Registration()
                 {
-                    name= model.name,phone=model.phone,email=model.email,Rid=rid.id
+                    username = model.username,
+                    password = model.password,
+                    user_type = model.user_type
                 };
-                db.Employees.Add(employee); 
-            }
-            if (model.user_type.Equals("Restaurents"))
-            {
-                var restaurents = new Restaurant()
+                db.Registrations.Add(user);
+                db.SaveChanges();
+                var rid = (from r in db.Registrations where r.username == model.username select r).SingleOrDefault();
+                if (model.user_type.Equals("Employees"))
                 {
-                    supplier_name = model.name,
-                    contact_number = model.phone,
-                    name="-",location="-",
-                    Rid = rid.id
-                };
-                db.Restaurants.Add(restaurents);
-            }
-            if (model.user_type.Equals("Admin"))
-            {
-                var admin = new Admin()
+                    var employee = new Employee()
+                    {
+                        name = model.name,
+                        phone = model.phone,
+                        email = model.email,
+                        Rid = rid.id
+                    };
+                    db.Employees.Add(employee);
+                }
+                if (model.user_type.Equals("Restaurents"))
                 {
-                    name = model.name,
-                    phone = model.phone,
-                  email=model.email,
-                    Rid = rid.id
-                };
-                db.Admins.Add(admin);
+                    var restaurents = new Restaurant()
+                    {
+                        supplier_name = model.name,
+                        contact_number = model.phone,
+                        name = "-",
+                        location = "-",
+                        Rid = rid.id
+                    };
+                    db.Restaurants.Add(restaurents);
+                }
+                db.SaveChanges();
+                ViewBag.msg = "Registration Successfull";
+                return View();
             }
-            db.SaveChanges();
-            ViewBag.msg = "Registration Successfull";
-            return View();
+            else
+            {
+                ViewBag.msg = "User Name exists";
+                return View();
+            }
+           
         }
 
     }

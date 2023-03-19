@@ -22,7 +22,7 @@
     <Property Name="max_preservation_time" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="collection_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="collection_employee_id" Type="Int32" />
-    <Property Name="collection_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="collection_time" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Employee" Relationship="Self.FK__CollectRe__colle__4316F928" FromRole="CollectRequests" ToRole="Employees" />
     <NavigationProperty Name="Restaurant" Relationship="Self.FK__CollectRe__resta__4222D4EF" FromRole="CollectRequests" ToRole="Restaurants" />
   </EntityType>

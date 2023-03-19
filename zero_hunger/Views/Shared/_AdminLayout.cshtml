@@ -22,6 +22,9 @@
                         @Html.ActionLink("Home", "Index", "Admin", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
+                        @Html.ActionLink("Add User", "AddUser", "Admin", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
                         @Html.ActionLink("Manage Employees", "ManageEmployees", "Admin", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
@@ -36,6 +39,7 @@
                     <li class="nav-item">
                         @Html.ActionLink("Log Out", "Logout", "Admin", new { area = "" }, new { @class = "nav-link" })
                     </li>
+
                 </ul>
             </div>
         </div>

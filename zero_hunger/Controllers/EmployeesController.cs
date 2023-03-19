@@ -66,11 +66,10 @@ namespace zero_hunger.Controllers
             var db = new zero_hungerEntities2();
             var extrequest = db.CollectRequests.Find(id);
             extrequest.collection_status = "Delivered";
-            extrequest.collection_time = DateTime.Now;
             db.SaveChanges();
             return RedirectToAction("AcceptedRequests");
         }
-        public ActionResult Profile()
+        public new ActionResult Profile()
         {
             int eid = (int)Session["Rid"];
             var db = new zero_hungerEntities2();

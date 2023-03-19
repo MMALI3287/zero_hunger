@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="zero_hungerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="zero_hungerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="id" />
@@ -26,7 +26,7 @@
           <Property Name="max_preservation_time" Type="datetime" Nullable="false" />
           <Property Name="collection_status" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="collection_employee_id" Type="int" />
-          <Property Name="collection_time" Type="datetime" Nullable="false" />
+          <Property Name="collection_time" Type="datetime" />
         </EntityType>
         <EntityType Name="Employees">
           <Key>
@@ -68,7 +68,7 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK__Admins__Rid__398D8EEE">
+        <Association Name="FK__Admins__Rid__5441852A">
           <End Role="Registration" Type="Self.Registration" Multiplicity="0..1" />
           <End Role="Admins" Type="Self.Admins" Multiplicity="*" />
           <ReferentialConstraint>
@@ -80,7 +80,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CollectRe__colle__4316F928">
+        <Association Name="FK__CollectRe__colle__5629CD9C">
           <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
           <End Role="CollectRequests" Type="Self.CollectRequests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -92,7 +92,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CollectRe__resta__4222D4EF">
+        <Association Name="FK__CollectRe__resta__5535A963">
           <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="0..1" />
           <End Role="CollectRequests" Type="Self.CollectRequests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -104,7 +104,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Employees__Rid__3C69FB99">
+        <Association Name="FK__Employees__Rid__571DF1D5">
           <End Role="Registration" Type="Self.Registration" Multiplicity="0..1" />
           <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
           <ReferentialConstraint>
@@ -116,7 +116,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Restaurants__Rid__3F466844">
+        <Association Name="FK__Restaurants__Rid__5812160E">
           <End Role="Registration" Type="Self.Registration" Multiplicity="0..1" />
           <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="*" />
           <ReferentialConstraint>
@@ -135,29 +135,28 @@
           <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Admins__Rid__398D8EEE" Association="Self.FK__Admins__Rid__398D8EEE">
+          <AssociationSet Name="FK__Admins__Rid__5441852A" Association="Self.FK__Admins__Rid__5441852A">
             <End Role="Registration" EntitySet="Registration" />
             <End Role="Admins" EntitySet="Admins" />
           </AssociationSet>
-          <AssociationSet Name="FK__CollectRe__colle__4316F928" Association="Self.FK__CollectRe__colle__4316F928">
+          <AssociationSet Name="FK__CollectRe__colle__5629CD9C" Association="Self.FK__CollectRe__colle__5629CD9C">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="CollectRequests" EntitySet="CollectRequests" />
           </AssociationSet>
-          <AssociationSet Name="FK__CollectRe__resta__4222D4EF" Association="Self.FK__CollectRe__resta__4222D4EF">
+          <AssociationSet Name="FK__CollectRe__resta__5535A963" Association="Self.FK__CollectRe__resta__5535A963">
             <End Role="Restaurants" EntitySet="Restaurants" />
             <End Role="CollectRequests" EntitySet="CollectRequests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Employees__Rid__3C69FB99" Association="Self.FK__Employees__Rid__3C69FB99">
+          <AssociationSet Name="FK__Employees__Rid__571DF1D5" Association="Self.FK__Employees__Rid__571DF1D5">
             <End Role="Registration" EntitySet="Registration" />
             <End Role="Employees" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK__Restaurants__Rid__3F466844" Association="Self.FK__Restaurants__Rid__3F466844">
+          <AssociationSet Name="FK__Restaurants__Rid__5812160E" Association="Self.FK__Restaurants__Rid__5812160E">
             <End Role="Registration" EntitySet="Registration" />
             <End Role="Restaurants" EntitySet="Restaurants" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="zero_hungerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -183,7 +182,7 @@
           <Property Name="max_preservation_time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="collection_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="collection_employee_id" Type="Int32" />
-          <Property Name="collection_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="collection_time" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__CollectRe__colle__4316F928" FromRole="CollectRequests" ToRole="Employees" />
           <NavigationProperty Name="Restaurant" Relationship="Self.FK__CollectRe__resta__4222D4EF" FromRole="CollectRequests" ToRole="Restaurants" />
         </EntityType>

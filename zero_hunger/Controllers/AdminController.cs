@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using zero_hunger.EF;
+using zero_hunger.Models;
 
 namespace zero_hunger.Controllers
 {
@@ -124,7 +125,11 @@ namespace zero_hunger.Controllers
 
         public ActionResult ReqDelete(int id)
         {
-            return View();  
+            var db = new zero_hungerEntities2();
+            var extreq = db.CollectRequests.Find(id);
+            db.CollectRequests.Remove(extreq);
+            db.SaveChanges();
+            return RedirectToAction("ManageRequests");
         }
 
         [HttpGet]
@@ -132,6 +137,8 @@ namespace zero_hunger.Controllers
         {
             var db = new zero_hungerEntities2 ();
             var extreq= db.CollectRequests.Find(id);
+            var extemp = db.Employees.ToList();
+            ViewBag.data = extemp;
             return View(extreq);
         }
         [HttpPost]
@@ -143,9 +150,109 @@ namespace zero_hunger.Controllers
             extreq.quantity = model.quantity;
             extreq.collection_status = model.collection_status;
             extreq.food_type = model.food_type;
-            
+            if (!model.collection_status.Equals("Pending"))
+            {
+                extreq.collection_employee_id = model.collection_employee_id;
+                extreq.collection_time = model.collection_time;
+            }
+            else
+            {
+                extreq.collection_employee_id = null;
+                extreq.collection_time = null;
+            }
             db.SaveChanges ();
             return RedirectToAction("ManageRequests");
+        }
+
+        public new ActionResult Profile()
+        {
+            int aid = (int)Session["Rid"];
+            var db = new zero_hungerEntities2();
+            var extadmin = (from r in db.Admins where r.Rid == aid select r).SingleOrDefault();
+            return View(extadmin);
+        }
+
+        public ActionResult LogOut()
+        {
+            return RedirectToAction("Login", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult PEdit()
+        {
+            int aid = (int)Session["Rid"];
+            var db = new zero_hungerEntities2();
+            var extadmin = (from r in db.Admins where r.Rid == aid select r).SingleOrDefault();
+            return View(extadmin);
+        }
+        [HttpPost]
+        public ActionResult PEdit(Employee model)
+        {
+            int aid = (int)Session["Rid"];
+            var db = new zero_hungerEntities2();
+            var extadmin = (from r in db.Admins where r.Rid == aid select r).SingleOrDefault();
+            extadmin.name = model.name;
+            extadmin.phone = model.phone;
+            extadmin.email = model.email;
+            db.SaveChanges();
+            ViewBag.msg = "Successfully Saved";
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult AddUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddUser(RegistrationClass model)
+        {
+            var db = new zero_hungerEntities2();
+            var extUsername = (from u in db.Registrations where u.username == model.username select u).SingleOrDefault();
+            if (extUsername == null)
+            {
+                var user = new Registration()
+                {
+                    username = model.username,
+                    password = model.password,
+                    user_type = model.user_type
+                };
+                db.Registrations.Add(user);
+                db.SaveChanges();
+                var rid = (from r in db.Registrations where r.username == model.username select r).SingleOrDefault();
+                if (model.user_type.Equals("Employees"))
+                {
+                    var employee = new Employee()
+                    {
+                        name = model.name,
+                        phone = model.phone,
+                        email = model.email,
+                        Rid = rid.id
+                    };
+                    db.Employees.Add(employee);
+                }
+                if (model.user_type.Equals("Restaurents"))
+                {
+                    var restaurents = new Restaurant()
+                    {
+                        supplier_name = model.name,
+                        contact_number = model.phone,
+                        name = "-",
+                        location = "-",
+                        Rid = rid.id
+                    };
+                    db.Restaurants.Add(restaurents);
+                }
+                db.SaveChanges();
+                ViewBag.msg = "Registration Successfull";
+                return View();
+            }
+            else
+            {
+                ViewBag.msg = "User Name exists";
+                return View();
+            }
         }
 
     }

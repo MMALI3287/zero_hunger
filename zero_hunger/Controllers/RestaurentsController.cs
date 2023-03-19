@@ -25,6 +25,7 @@ namespace zero_hunger.Controllers
             if(extrestaurent.name.Equals("-") || extrestaurent.location.Equals("-"))
             {
                 TempData["addName"] = "Please Add Restaurent Name and Location";
+                Session["Redirect"] = "AddRequest";
                 return RedirectToAction("PEdit");
             }
             else
@@ -45,8 +46,7 @@ namespace zero_hunger.Controllers
                 quantity = model.quantity,
                 max_preservation_time = model.max_preservation_time,
                 collection_status = "Pending",
-                
-                collection_time = DateTime.Now,
+                collection_time = null,
             };
             db.CollectRequests.Add(newRequest);
             db.SaveChanges();
@@ -110,6 +110,12 @@ namespace zero_hunger.Controllers
             extrestaurent.supplier_name = model.supplier_name;
             db.SaveChanges();
             ViewBag.msg = "Successfully Saved";
+            if (!Session["Redirect"].Equals(null))
+            {
+                Session["Redirect"] = null;
+                return RedirectToAction("AddRequest");
+            }
+            else
             return View();
         }
 
