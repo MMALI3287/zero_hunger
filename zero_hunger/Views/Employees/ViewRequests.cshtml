@@ -6,10 +6,6 @@
 }
 
 <h2>ViewRequest</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
 
@@ -73,7 +69,7 @@
                 if (item.collection_status.Equals("Pending"))
                 {
                     <td>
-                        @Html.ActionLink("Accept", "Accept", new { id = item.id }, new { @class = "btn btn-default " })
+                        @Html.ActionLink("Accept", "Accept", new { id = item.id }, new { @class = "btn btn-success-list " })
                     </td>
                 }
                 else

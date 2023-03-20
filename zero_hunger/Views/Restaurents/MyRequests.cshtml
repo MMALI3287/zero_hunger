@@ -7,9 +7,6 @@
 
 <h2>MyRequest</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
        
@@ -120,7 +117,7 @@
             {
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-default " }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-default " })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger " })
                 </td>
             }
             else

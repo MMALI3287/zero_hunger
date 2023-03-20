@@ -7,9 +7,6 @@
 
 <h2>ManageRestaurents</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -50,8 +47,8 @@
             @Html.DisplayFor(modelItem => item.Registration.username)
         </td>
         <td>
-            @Html.ActionLink("Edit", "ResEdit", new { id=item.id }) |
-            @Html.ActionLink("Delete", "ResDelete", new { id=item.id })
+            @Html.ActionLink("Edit", "ResEdit", new { id=item.id }, new {@class="btn btn-default"}) |
+            @Html.ActionLink("Delete", "ResDelete", new { id=item.id }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

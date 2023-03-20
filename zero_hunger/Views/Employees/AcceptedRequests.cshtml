@@ -7,9 +7,6 @@
 
 <h2>AcceptedRequests</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
 
@@ -87,16 +84,14 @@
                     if (item.collection_status.Equals("Accepted"))
                     {
                         <td>
-                            @Html.ActionLink("Collected", "Collected", new { id = item.id }, new { @class = "btn btn-default " }) |
-                            @Html.ActionLink("Delivered", "Delivered", new { id = item.id }, new { @class = "btn btn-default " }) |
-                            @Html.ActionLink("Cancel", "Cancel", new { id = item.id }, new { @class = "btn btn-default " })
-
+                            @Html.ActionLink("Collected", "Collected", new { id = item.id }, new { @class = "btn btn-success-list " }) |
+                            @Html.ActionLink("Cancel", "Cancel", new { id = item.id }, new { @class = "btn btn-danger " })
                         </td>
                     }
                     else if (item.collection_status.Equals("Collected"))
                     {
                         <td>
-                            @Html.ActionLink("Delivered", "Delivered", new { id = item.id }, new { @class = "btn btn-default " })
+                            @Html.ActionLink("Delivered", "Delivered", new { id = item.id }, new { @class = "btn btn-success-list " })
                         </td>
                     }
                     else

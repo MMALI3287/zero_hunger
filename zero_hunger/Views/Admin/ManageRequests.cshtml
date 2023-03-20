@@ -7,9 +7,6 @@
 
 <h2>ManageRequests</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -120,22 +117,22 @@
                 if (item.collection_employee_id.Equals(null) && item.collection_status.Equals("Accepted"))
                 {
                     <td>
-                        @Html.ActionLink("Send Again", "pending", new { id = item.id }, new { @class = "btn btn-default " })
+                        @Html.ActionLink("Send Again", "pending", new { id = item.id }, new { @class = "btn btn-success " })
                         @Html.ActionLink("Edit", "ReqEdit", new { id = item.id }, new { @class = "btn btn-default " })
-                        @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-default " })
+                        @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-danger " })
                     </td>
                 }
                 else if (!item.restaurant_id.Equals(null))
                 {
                     <td>
                         @Html.ActionLink("Edit", "ReqEdit", new { id = item.id }, new { @class = "btn btn-default " })
-                        @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-default " })
+                        @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-danger " })
                     </td>
                 }
                 else
                 {
                     <td>
-                        @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-default " })
+                        @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-danger " })
                     </td>  
                 }
             }

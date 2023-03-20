@@ -6,10 +6,11 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/Site.css" />
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
         <div class="container">
             <div class="navbar-brand">
                 @Html.ActionLink("Zero Hunger", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
@@ -40,14 +41,19 @@
     </nav>
 
 
+
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
-
+    <footer>
+        <div class="container-footer">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

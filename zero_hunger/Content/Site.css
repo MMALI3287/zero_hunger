@@ -18,3 +18,200 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Color variables */
+:root {
+  --primary-color: #6c5ce7;
+  --secondary-color: #ffd166;
+  --success-color: #06d6a0;
+  --danger-color: #ef476f;
+  --warning-color: #ff7f50;
+  --info-color: #118ab2;
+  --light-color: #f1faee;
+  --light-color-shade: #D8E1D6;
+  --dark-color: #073b4c;
+}
+
+/* Body background color */
+body {
+  background-color: var(--light-color);
+}
+
+/* Text color */
+body {
+  color: var(--dark-color);
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  border: none;
+  padding: 4px 16px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+
+
+.btn-success {
+  background-color: var(--success-color);
+  color: var(--light-color);
+  border: none;
+  padding: 4px 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+.btn-success-list {
+  background-color: var(--success-color);
+  color: var(--light-color);
+  border: none;
+  padding: 4px 16px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: var(--light-color);
+  border: none;
+  padding: 4px 16px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Success message */
+.success {
+  background-color: var(--success-color);
+  color: var(--light-color);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Danger message */
+.danger {
+  background-color: var(--danger-color);
+  color: var(--light-color);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Warning message */
+.warning {
+  background-color: var(--warning-color);
+  color: var(--light-color);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Info message */
+.info {
+  background-color: var(--info-color);
+  color: var(--light-color);
+  padding: 8px;
+  border-radius: 4px;
+}
+.navbar {
+  background-color: var(--dark-color);
+}
+
+.navbar .nav-link {
+  color: var(--light-color);
+}
+
+.navbar .nav-link:hover {
+  color: var(--secondary-color);
+}
+
+.navbar-brand {
+  color: var(--light-color);
+}
+.navbar-brand:hover {
+  color: var(--secondary-color);
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  border-style: solid;
+}
+
+.table th, .table td {
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  border-bottom: 2px solid var(--secondary-color); 
+}
+
+.table td {
+  color: var(--dark-color);
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.table tbody tr:nth-child(even) td {
+  background-color: var(--light-color);
+}
+
+.table tbody tr:nth-child(odd) td {
+  background-color: var(--light-color-shade);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.form-control {
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 15px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.mycontainer {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  margin-top: 10rem;
+}
+
+footer {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}
+
+.container-footer {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
