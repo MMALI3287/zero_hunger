@@ -25,7 +25,7 @@ textarea {
   --secondary-color: #ffd166;
   --success-color: #06d6a0;
   --danger-color: #ef476f;
-  --warning-color: #ff7f50;
+  --warning-color: #e1ce3d;/*#ff7f50*/
   --info-color: #118ab2;
   --light-color: #f1faee;
   --light-color-shade: #D8E1D6;
@@ -101,6 +101,7 @@ a:hover {
   color: var(--light-color);
   padding: 8px;
   border-radius: 4px;
+   width: 100%;
 }
 
 /* Danger message */
@@ -109,6 +110,7 @@ a:hover {
   color: var(--light-color);
   padding: 8px;
   border-radius: 4px;
+  width: 100%;
 }
 
 /* Warning message */
@@ -117,6 +119,7 @@ a:hover {
   color: var(--light-color);
   padding: 8px;
   border-radius: 4px;
+    width: 100%;
 }
 
 /* Info message */
@@ -125,6 +128,7 @@ a:hover {
   color: var(--light-color);
   padding: 8px;
   border-radius: 4px;
+   width: 100%;
 }
 .navbar {
   background-color: var(--dark-color);

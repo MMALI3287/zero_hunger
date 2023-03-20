@@ -4,5 +4,42 @@
     Layout = "~/Views/Shared/_EmployeesLayout.cshtml";
 }
 
-<h2>Employees</h2>
 
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Zero Hunger</h1>
+        <p class="lead">Welcome to our zero hunger initiative! </p>
+    </section>
+    <br /><br />
+    <div class="row">
+        <section class="col-md-3" aria-labelledby="gettingStartedTitle">
+            <h2 id="gettingStartedTitle">Overview</h2>
+            <p>
+                Our goal is to eradicate hunger in the city of Dhaka by making the most of the surplus food that is wasted every day. Our platform provides a streamlined process for NGOs, restaurants, and volunteers to work together towards a common goal.
+            </p>
+
+        </section>
+        <section class="col-md-3" aria-labelledby="librariesTitle">
+            <h2 id="librariesTitle">Employees</h2>
+            <p>Our employees work tirelessly to ensure that food is collected and distributed efficiently. They use our system to receive information about their assignments and track their progress in real-time.</p>
+
+        </section>
+        <section class="col-md-3" aria-labelledby="hostingTitle">
+            <h2 id="hostingTitle">Restaurents</h2>
+            <p>Restaurants can use our system to create collect requests for their surplus food, and set a maximum time for which the food can be preserved. NGOs can then accept these requests, and assign volunteers to collect and distribute the food to those in need. Our system also tracks all collect requests and their details to ensure that everything runs smoothly.</p>
+
+        </section>
+        <section class="col-md-3" aria-labelledby="hostingTitle">
+            <h2 id="hostingTitle">Beneficiaries</h2>
+            <p>The beneficiaries of this system are people who are deprived of food. They will receive the collected food from the NGO.</p>
+        </section>
+
+
+    </div>
+    <br /><br /><br />
+    <h2 id="hostingTitle">Thanks For joining with us!!!<br /> Together, we can make a difference.</h2>
+</main>
