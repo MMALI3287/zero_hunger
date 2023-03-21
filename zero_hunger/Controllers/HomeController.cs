@@ -116,18 +116,16 @@ namespace zero_hunger.Controllers
                 try
                 {
                     MailMessage mail = new MailMessage();
-                    mail.From = new MailAddress("mahtab.sani12381@gmail.com");
+                    mail.From = new MailAddress("zerohunger12381@gmail.com");
                     mail.To.Add(new MailAddress(model.email));
                     mail.Subject = "Account Created";
                     mail.Body = "<html><body><h1>Welcome to Zero Hunger Community</h1><br>Congratulation Your Account created Successfully</body</html>";
                     mail.IsBodyHtml = true;
-                    
-
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = "smtp.gmail.com";
                     smtp.Port = 587; // or 465 for SSL
                     smtp.EnableSsl = true; // set to true for SSL encryption
-                    smtp.Credentials = new NetworkCredential("mahtab.sani12381@gmail.com", "ozvxmghbzclxkvnx"); // set the username and password for the SMTP server
+                    smtp.Credentials = new NetworkCredential("zerohunger12381@gmail.com", "foffyaezvtxjrufd"); // set the username and password for the SMTP server
                     smtp.Send(mail);
                 }
                 catch
