@@ -5,8 +5,30 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@{
+    if (ViewBag.msg != null)
+    {
+        if (ViewBag.msg.Equals("Registration Successfull"))
+        {
+            <center><label class="success" id="myLabel">@ViewBag.msg</label></center>
+            <script>
+                setTimeout(function () {
+                    $('#myLabel').fadeOut('slow');
+                }, 5000);
+            </script>
+        }
+        if (ViewBag.msg.Equals("User Name exists"))
+        {
+            <center><label class="warning" id="myLabel">@ViewBag.msg</label></center>
+            <script>
+                setTimeout(function () {
+                    $('#myLabel').fadeOut('slow');
+                }, 5000);
+            </script>
+        }
+    }
 
-<h3>@ViewBag.msg</h3>
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()

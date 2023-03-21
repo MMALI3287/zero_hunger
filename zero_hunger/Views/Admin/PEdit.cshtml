@@ -5,12 +5,24 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@{
+    if (ViewBag.msg != null)
+    {
 
-<h3>@ViewBag.msg</h3>
+        <center><label class="success" id="myLabel">@ViewBag.msg</label></center>
+        <script>
+            setTimeout(function () {
+                $('#myLabel').fadeOut('slow');
+            }, 5000);
+        </script>
+
+    }
+
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal mycontainer">
         <h4>Profile Edit</h4>
         <hr />

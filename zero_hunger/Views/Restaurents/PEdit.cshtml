@@ -4,16 +4,34 @@
     ViewBag.Title = "PEdit";
     Layout = "~/Views/Shared/_RestaurentsLayout.cshtml";
 }
+@{
+    if (ViewBag.msg != null)
+    {
 
-<h3>@ViewBag.msg</h3>
-@if (TempData["AddName"]!=null)
-            {
-                <h3>@TempData["AddName"]</h3>
-            }
+        <center><label class="success" id="myLabel">@ViewBag.msg</label></center>
+        <script>
+            setTimeout(function () {
+                $('#myLabel').fadeOut('slow');
+            }, 5000);
+        </script>
+
+    }
+
+}
+@if (TempData["AddName"] != null)
+{
+    <center><label class="warning" id="myLabel">@TempData["AddName"]</label></center>
+    <script>
+        setTimeout(function () {
+            $('#myLabel').fadeOut('slow');
+        }, 5000);
+    </script>
+}
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal mycontainer">
         <h4>Edit Profile</h4>
         <hr />
@@ -23,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model=>model.name,new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
             </div>
         </div>

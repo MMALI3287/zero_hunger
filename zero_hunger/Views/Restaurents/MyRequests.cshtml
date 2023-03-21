@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_RestaurentsLayout.cshtml";
 }
 
-<h2>MyRequest</h2>
+<h4>My Request</h4>
 
 <table class="table">
     <tr>
@@ -19,9 +19,7 @@
         <th>
             Max Preservation Upto
         </th>
-        <th>
-           Status
-        </th>
+       
         <th>
             Accepted By
         </th>
@@ -30,6 +28,9 @@
         </th>
         <th>
             Collection Time
+        </th>
+         <th>
+           Status
         </th>
         <th>Modify</th>
     </tr>
@@ -45,9 +46,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.max_preservation_time)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.collection_status)
-        </td>
+
 
 
         @{
@@ -111,9 +110,11 @@
 
             }
         }
-
+        <td>
+            @Html.DisplayFor(modelItem => item.collection_status)
+        </td>
         @{
-            if (item.collection_status.Equals("Pending"))
+            if (item.collection_status.Equals("Pending") || item.collection_status.Equals("Accepted"))
             {
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-default " }) |

@@ -24,7 +24,13 @@
                         @Html.ActionLink("Home", "Index", "Employees", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("View Requests", "ViewRequests", "Employees", new { area = "" }, new { @class = "nav-link" })
+                        <a href="../Employees/ViewRequests" class="nav-link">
+                            View Request
+                            @if(ViewBag.dot !=null && ViewBag.dot.Equals("ON"))
+                            {
+                                <span class="nav-link-indicator"></span>
+                            }
+                        </a>
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("Accepted Requests", "AcceptedRequests", "Employees", new { area = "" }, new { @class = "nav-link" })

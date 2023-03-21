@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>ManageEmployees</h2>
+<h4>Manage Employees</h4>
 
 <table class="table">
     <tr>
@@ -21,7 +21,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Registration.username)
         </th>
-        <th></th>
+        <th>Modify</th>
     </tr>
 
 @foreach (var item in Model) {

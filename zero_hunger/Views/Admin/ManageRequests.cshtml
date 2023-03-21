@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>ManageRequests</h2>
+<h4>Manage Requests</h4>
 
 <table class="table">
     <tr>
@@ -22,15 +22,16 @@
         <th>
             Max Preservation Upto
         </th>
-        <th>
-            Status
-        </th>
+
         <th>
             Accepted By
         </th>
-      
+
         <th>
             Collection Time
+        </th>
+        <th>
+            Status
         </th>
         <th>Modify</th>
     </tr>
@@ -59,9 +60,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.max_preservation_time)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.collection_status)
-            </td>
+
 
             @{
                 if (item.collection_status.Equals("Collected") || item.collection_status.Equals("Delivered"))
@@ -113,16 +112,20 @@
                 }
             }
 
+            <td>
+                @Html.DisplayFor(modelItem => item.collection_status)
+            </td>
+
             @{
                 if (item.collection_employee_id.Equals(null) && item.collection_status.Equals("Accepted"))
                 {
                     <td>
-                        @Html.ActionLink("Re-Send", "pending", new { id = item.id }, new { @class = "btn btn-success-list "}) |
+                        @Html.ActionLink("Re-Send", "pending", new { id = item.id }, new { @class = "btn btn-success-list " }) |
                         @Html.ActionLink("Edit", "ReqEdit", new { id = item.id }, new { @class = "btn btn-default " }) |
                         @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-danger " })
                     </td>
                 }
-                else if (!item.restaurant_id.Equals(null))
+                else if (!item.restaurant_id.Equals(null) && (!item.collection_status.Equals("Delivered")))
                 {
                     <td>
                         @Html.ActionLink("Edit", "ReqEdit", new { id = item.id }, new { @class = "btn btn-default " }) |
@@ -133,7 +136,8 @@
                 {
                     <td>
                         @Html.ActionLink("Delete", "ReqDelete", new { id = item.id }, new { @class = "btn btn-danger " })
-                    </td>  
+                    </td>
+
                 }
             }
         </tr>

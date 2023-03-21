@@ -4,15 +4,25 @@
     ViewBag.Title = "AddRequest";
     Layout = "~/Views/Shared/_RestaurentsLayout.cshtml";
 }
+@{
+    if (ViewBag.msg != null)
+    {     
+            <center><label class="success" id="myLabel">@ViewBag.msg</label></center>
+            <script>
+                setTimeout(function () {
+                    $('#myLabel').fadeOut('slow');
+                }, 5000);
+            </script>
+    }
 
-<h3>@ViewBag.msg</h3>
+}
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal mycontainer">
-        <h4>CollectRequest</h4>
+        <h4>Send Request</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -41,7 +51,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Send" class="btn btn-success" />
             </div>
         </div>
     </div>

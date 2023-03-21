@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_EmployeesLayout.cshtml";
 }
 
-<h2>ViewRequest</h2>
+<h4>View Requests</h4>
 <table class="table">
     <tr>
 
@@ -18,9 +18,7 @@
         <th>
             Max Preservation Upto
         </th>
-        <th>
-            Status
-        </th>
+
         <th>
             Restaurent Name
         </th>
@@ -32,6 +30,9 @@
         </th>
         <th>
             Contact Number
+        </th>
+        <th>
+            Status
         </th>
         <th>Modify</th>
     </tr>
@@ -48,9 +49,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.max_preservation_time)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.collection_status)
-            </td>
+
 
             <td>
                 @Html.DisplayFor(modelItem => item.Restaurant.name)
@@ -64,7 +63,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Restaurant.contact_number)
             </td>
-
+            <td>
+                @Html.DisplayFor(modelItem => item.collection_status)
+            </td>
             @{
                 if (item.collection_status.Equals("Pending"))
                 {

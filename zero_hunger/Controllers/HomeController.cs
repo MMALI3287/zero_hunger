@@ -52,12 +52,13 @@ namespace zero_hunger.Controllers
                 }
                 if (extUser.user_type.Equals("Restaurents"))
                 {
+                    Session["Redirect"] = "";
                     return RedirectToAction("Index","Restaurents");
                 }
             }
             else
             {
-                ViewBag.msg = "Logn Failed";
+                ViewBag.msg = "Login Failed";
             }
             return View(); 
         }

@@ -205,7 +205,8 @@ footer {
   background-color: var(--dark-color);
   color: var(--light-color);
   padding: 20px 0;
-  position: absolute;
+    position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
 }
@@ -219,3 +220,63 @@ footer p {
   margin: 0 auto;
 }
 
+.mycard {
+  background-color:#fff;
+  border: 1px solid #ccc;
+  border-radius:0px 0px 10px 10px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 300px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.mycard .circle {
+  background-color:var(--info-color);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mycard .circle span {
+  color: var(--light-color);
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.mycard h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.mycard-header{
+  background-color:var(--info-color);
+  color: var(--light-color);
+  border: 1px solid #ccc;
+  border-radius:10px 10px 0px 0px;
+  padding: 10px;
+  width: 300px;
+  height: 50px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+.nav-link-indicator {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: red;
+  top: -3px;
+  right: -5px;
+  
+}

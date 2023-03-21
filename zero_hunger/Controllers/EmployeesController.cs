@@ -12,6 +12,24 @@ namespace zero_hunger.Controllers
         // GET: Employees
         public ActionResult Index()
         {
+            int eid = (int)Session["Rid"];
+            var db = new zero_hungerEntities2();
+            var extemp = (from r in db.Employees where r.Rid == eid select r).SingleOrDefault();
+            var pending = (from p in db.CollectRequests where p.collection_status == "Pending" select p).ToList();
+            var accepted = (from p in db.CollectRequests where p.collection_status == "Accepted" && p.collection_employee_id == extemp.id select p).ToList();
+            var collected = (from p in db.CollectRequests where p.collection_status == "Collected" && p.collection_employee_id == extemp.id select p).ToList();
+            var delivered = (from p in db.CollectRequests where p.collection_status == "Delivered" && p.collection_employee_id == extemp.id select p).ToList();
+            ViewBag.pendingcount=pending.Count;
+            ViewBag.acceptedcount=accepted.Count;
+            ViewBag.collectedcount=collected.Count;
+            ViewBag.deliveredcount=delivered.Count;
+            if (pending.Count > 0)
+            {
+                if (Session["dot"] == null)
+                {
+                    ViewBag.dot = "ON";
+                }   
+            }
             return View();
         }
 
@@ -19,6 +37,7 @@ namespace zero_hunger.Controllers
         {
             var db = new zero_hungerEntities2();
             var extRequest = (from cr in db.CollectRequests where cr.collection_status=="Pending" select cr).ToList();
+            Session["dot"] = "OFF";
             return View(extRequest);
         }
         public ActionResult AcceptedRequests()

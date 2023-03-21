@@ -13,6 +13,17 @@ namespace zero_hunger.Controllers
         // GET: Restaurents
         public ActionResult Index()
         {
+            int id = (int)Session["Rid"];
+            var db = new zero_hungerEntities2();
+            var extrest = (from r in db.Restaurants where r.Rid == id select r).SingleOrDefault();
+            var pending = (from p in db.CollectRequests where p.collection_status == "Pending" && p.restaurant_id == extrest.id select p).ToList();
+            var accepted = (from p in db.CollectRequests where p.collection_status == "Accepted" && p.restaurant_id == extrest.id select p).ToList();
+            var collected = (from p in db.CollectRequests where p.collection_status == "Collected" && p.restaurant_id == extrest.id select p).ToList();
+            var delivered = (from p in db.CollectRequests where p.collection_status == "Delivered" && p.restaurant_id == extrest.id select p).ToList();
+            ViewBag.pendingcount = pending.Count;
+            ViewBag.acceptedcount = accepted.Count;
+            ViewBag.collectedcount = collected.Count;
+            ViewBag.deliveredcount = delivered.Count;
             return View();
         }
 
@@ -82,7 +93,7 @@ namespace zero_hunger.Controllers
             return View();
         }
       
-        public ActionResult Profile()
+        public new ActionResult Profile()
         {
             int id = (int)Session["Rid"];
             var db = new zero_hungerEntities2();
@@ -110,13 +121,16 @@ namespace zero_hunger.Controllers
             extrestaurent.supplier_name = model.supplier_name;
             db.SaveChanges();
             ViewBag.msg = "Successfully Saved";
-            if (!Session["Redirect"].Equals(null))
+            if (!Session["Redirect"].Equals(""))
             {
-                Session["Redirect"] = null;
+                Session["Redirect"] = "";
                 return RedirectToAction("AddRequest");
             }
             else
-            return View();
+            {
+                return View();
+            }
+           
         }
 
         public ActionResult LogOut()

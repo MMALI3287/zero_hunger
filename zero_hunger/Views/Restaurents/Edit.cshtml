@@ -5,19 +5,31 @@
     Layout = "~/Views/Shared/_RestaurentsLayout.cshtml";
 }
 
+@{
+    if (ViewBag.msg != null)
+    {
+        
+            <center><label class="success" id="myLabel">@ViewBag.msg</label></center>
+            <script>
+                setTimeout(function () {
+                    $('#myLabel').fadeOut('slow');
+                }, 5000);
+            </script>
+      
+    }
 
-<h3>@ViewBag.msg</h3>
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal mycontainer">
-        <h4>CollectRequest</h4>
+        <h4>Edit Request</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.id)
 
-        
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.food_type, htmlAttributes: new { @class = "control-label col-md-2" })
