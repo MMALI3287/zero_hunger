@@ -10,10 +10,15 @@
     ViewBag.Title = "Home Page";
 }
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">Restaurents Dashboard</h1>
-        <p class="lead">Welcome to our zero hunger initiative! </p>
-    </section>
+    <div class="row" aria-labelledby="aspnetTitle">
+        <section class="col-md-6">
+            <h1 id="title">Restaurents Dashboard</h1>
+            <p class="lead">Welcome to our zero hunger initiative! </p>
+        </section>
+        <section class="col-md-6 text-end">
+            <h1 id="title">Welcome,@ViewBag.username</h1>
+        </section>
+    </div>
     <br /><br />
 
     <div class="row">

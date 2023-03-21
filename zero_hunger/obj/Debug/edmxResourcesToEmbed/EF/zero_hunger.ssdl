@@ -41,6 +41,7 @@
     <Property Name="user_type" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="otp" Type="int" />
   </EntityType>
   <EntityType Name="Restaurants">
     <Key>
@@ -51,6 +52,7 @@
     <Property Name="location" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="supplier_name" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="contact_number" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
     <Property Name="Rid" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">

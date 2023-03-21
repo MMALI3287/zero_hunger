@@ -49,6 +49,7 @@
     <NavigationProperty Name="Admins" Relationship="Self.FK__Admins__Rid__398D8EEE" FromRole="Registration" ToRole="Admins" />
     <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Rid__3C69FB99" FromRole="Registration" ToRole="Employees" />
     <NavigationProperty Name="Restaurants" Relationship="Self.FK__Restaurants__Rid__3F466844" FromRole="Registration" ToRole="Restaurants" />
+    <Property Name="otp" Type="Int32" />
   </EntityType>
   <EntityType Name="Restaurant">
     <Key>
@@ -62,6 +63,7 @@
     <Property Name="Rid" Type="Int32" />
     <NavigationProperty Name="CollectRequests" Relationship="Self.FK__CollectRe__resta__4222D4EF" FromRole="Restaurants" ToRole="CollectRequests" />
     <NavigationProperty Name="Registration" Relationship="Self.FK__Restaurants__Rid__3F466844" FromRole="Restaurants" ToRole="Registration" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>

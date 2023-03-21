@@ -15,13 +15,15 @@ namespace zero_hunger.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            int aid = (int)Session["Rid"];
             var db = new zero_hungerEntities2();
             var emp = db.Employees.ToList();
             var rest = db.Restaurants.ToList();
             var admin = db.Admins.ToList();
             var pending = (from p in db.CollectRequests where p.collection_status=="Pending" select p).ToList();
             var collected = (from p in db.CollectRequests where p.collection_status == "Collected" select p).ToList();
-            var delivered = (from p in db.CollectRequests where p.collection_status == "Delivered" select p).ToList();
+            var delivered = (from p in db.CollectRequests where p.collection_status == "Delivered" select p).ToList();  
+            var extadmin = (from r in db.Admins where r.Rid == aid select r).SingleOrDefault();
             int admincount=admin.Count;
             int empcount = emp.Count;
             int rescount = rest.Count;
@@ -34,6 +36,7 @@ namespace zero_hunger.Controllers
             ViewBag.pendingcount=pendingcount;
             ViewBag.deliveredcount=deliveredcount;  
             ViewBag.collectedcount=collectedcount;
+            ViewBag.username = extadmin.Registration.username;
             return View();
         }
         public ActionResult ManageEmployees()
@@ -270,6 +273,7 @@ namespace zero_hunger.Controllers
                     {
                         supplier_name = model.name,
                         contact_number = model.phone,
+                        email = model.email,
                         name = "-",
                         location = "-",
                         Rid = rid.id

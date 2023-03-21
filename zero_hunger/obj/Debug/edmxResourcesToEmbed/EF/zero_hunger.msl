@@ -40,6 +40,7 @@
     <EntitySetMapping Name="Registrations">
       <EntityTypeMapping TypeName="zero_hungerModel.Registration">
         <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="otp" ColumnName="otp" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="user_type" ColumnName="user_type" />
           <ScalarProperty Name="username" ColumnName="username" />
@@ -50,6 +51,7 @@
     <EntitySetMapping Name="Restaurants">
       <EntityTypeMapping TypeName="zero_hungerModel.Restaurant">
         <MappingFragment StoreEntitySet="Restaurants">
+          <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="location" ColumnName="location" />

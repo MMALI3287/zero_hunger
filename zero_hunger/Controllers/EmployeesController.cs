@@ -25,6 +25,7 @@ namespace zero_hunger.Controllers
             ViewBag.acceptedcount=accepted.Count;
             ViewBag.collectedcount=collected.Count;
             ViewBag.deliveredcount=delivered.Count;
+            ViewBag.username = extemp.Registration.username;
             if (pending.Count > 0)
             {
                 if (Session["dot"] == null)

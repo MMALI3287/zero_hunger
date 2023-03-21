@@ -7,18 +7,20 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
-
-
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">Admin Dashboard</h1>
-        <p class="lead">Welcome to our zero hunger initiative! </p>
-    </section>
+    <div class="row" aria-labelledby="aspnetTitle">
+        <section class="col-md-6">
+            <h1 id="title">Admin Dashboard</h1>
+            <p class="lead">Welcome to our zero hunger initiative! </p>
+        </section>
+        <section class="col-md-6 text-end">
+            <h1 id="title">Welcome,@ViewBag.username</h1>
+        </section>
+    </div>
     <br /><br />
 
           <div class="row">
-              <section class="col-md-4">
+              <section class="col-md-3">
                   <div class="mycard-header">
                       <h4>Total Employees</h4>
                   </div>
@@ -26,7 +28,7 @@
                       <div class="circle"><span>@ViewBag.empcount</span></div>
                   </div>
               </section>
-              <Section class="col-md-4">
+              <Section class="col-md-3">
                   <div class="mycard-header">
                       <h4>Total Restaurents</h4>
                   </div>
@@ -34,7 +36,7 @@
                       <div class="circle"><span>@ViewBag.rescount</span></div>
                   </div>
               </Section>
-              <Section class="col-md-4">
+              <Section class="col-md-3">
                   <div class="mycard-header">
                       <h4>Total Admins</h4>
                   </div>
@@ -42,7 +44,7 @@
                       <div class="circle"><span>@ViewBag.admincount</span></div>
                   </div>
               </Section>
-              <Section class="col-md-4">
+              <Section class="col-md-3">
                   <div class="mycard-header">
                       <h4>Pending Requests</h4>
                   </div>
@@ -51,7 +53,7 @@
                   </div>
               </Section>
 
-              <Section class="col-md-4">
+              <Section class="col-md-3">
                   <div class="mycard-header">
                       <h4>Collected Requests</h4>
                   </div>
@@ -60,7 +62,7 @@
                   </div>
               </Section>
 
-              <Section class="col-md-4">
+              <Section class="col-md-3">
                   <div class="mycard-header">
                       <h4>Delivered Requests</h4>
                   </div>

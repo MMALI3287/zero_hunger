@@ -11,19 +11,13 @@ namespace zero_hunger.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Admin
     {
-        [Required]
         public int id { get; set; }
-        [Required]
         public string name { get; set; }
-        [Required]
         public string phone { get; set; }
-        [Required]
         public string email { get; set; }
-        [Required]
         public Nullable<int> Rid { get; set; }
     
         public virtual Registration Registration { get; set; }

@@ -10,10 +10,15 @@
 }
 
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">Employees Dashboard</h1>
-        <p class="lead">Welcome to our zero hunger initiative! </p>
-    </section>
+    <div class="row" aria-labelledby="aspnetTitle">
+        <section class="col-md-6">
+            <h1 id="title">Employees Dashboard</h1>
+            <p class="lead">Welcome to our zero hunger initiative! </p>
+        </section>
+        <section class="col-md-6 text-end">
+            <h1 id="title">Welcome,@ViewBag.username</h1>
+        </section>
+    </div>
     <br /><br />
 
     <div class="row">
@@ -51,7 +56,7 @@
         </Section>
     </div>
     <br /><br /><br /><br /> <br /><br />
-   <center> <h2 id="hostingTitle">Thanks For joining with us!!!<br /> Together, we can make a difference.</h2></center>
+    <center> <h2 id="hostingTitle">Thanks For joining with us!!!<br /> Together, we can make a difference.</h2></center>
     <br /><br /> <br /><br /> <br />
 
 </main>

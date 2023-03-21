@@ -123,6 +123,7 @@ namespace zero_hunger.Controllers
                     {
                         supplier_name = model.name,
                         contact_number = model.phone,
+                        email=model.email,
                         name = "-",
                         location = "-",
                         Rid = rid.id
@@ -143,7 +144,7 @@ namespace zero_hunger.Controllers
                     smtp.Host = "smtp.gmail.com";
                     smtp.Port = 587; // or 465 for SSL
                     smtp.EnableSsl = true; // set to true for SSL encryption
-                    smtp.Credentials = new NetworkCredential("zerohunger12381@gmail.com", "foffyaezvtxjrufd"); // set the username and password for the SMTP server
+                    smtp.Credentials = new NetworkCredential("zerohunger12381@gmail.com", "udxlmxbjsammiway"); // set the username and password for the SMTP server
                     smtp.Send(mail);
                 }
                 catch

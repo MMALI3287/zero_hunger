@@ -46,6 +46,7 @@
           <Property Name="user_type" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="otp" Type="int" />
         </EntityType>
         <EntityType Name="Restaurants">
           <Key>
@@ -56,6 +57,7 @@
           <Property Name="location" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="supplier_name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="contact_number" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
           <Property Name="Rid" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -209,6 +211,7 @@
           <NavigationProperty Name="Admins" Relationship="Self.FK__Admins__Rid__398D8EEE" FromRole="Registration" ToRole="Admins" />
           <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Rid__3C69FB99" FromRole="Registration" ToRole="Employees" />
           <NavigationProperty Name="Restaurants" Relationship="Self.FK__Restaurants__Rid__3F466844" FromRole="Registration" ToRole="Restaurants" />
+          <Property Name="otp" Type="Int32" />
         </EntityType>
         <EntityType Name="Restaurant">
           <Key>
@@ -222,6 +225,7 @@
           <Property Name="Rid" Type="Int32" />
           <NavigationProperty Name="CollectRequests" Relationship="Self.FK__CollectRe__resta__4222D4EF" FromRole="Restaurants" ToRole="CollectRequests" />
           <NavigationProperty Name="Registration" Relationship="Self.FK__Restaurants__Rid__3F466844" FromRole="Restaurants" ToRole="Registration" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -366,6 +370,7 @@
           <EntitySetMapping Name="Registrations">
             <EntityTypeMapping TypeName="zero_hungerModel.Registration">
               <MappingFragment StoreEntitySet="Registration">
+                <ScalarProperty Name="otp" ColumnName="otp" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="user_type" ColumnName="user_type" />
                 <ScalarProperty Name="username" ColumnName="username" />
@@ -376,6 +381,7 @@
           <EntitySetMapping Name="Restaurants">
             <EntityTypeMapping TypeName="zero_hungerModel.Restaurant">
               <MappingFragment StoreEntitySet="Restaurants">
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="location" ColumnName="location" />

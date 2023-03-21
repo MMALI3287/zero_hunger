@@ -26,6 +26,7 @@ namespace zero_hunger.Controllers
             ViewBag.acceptedcount = accepted.Count;
             ViewBag.collectedcount = collected.Count;
             ViewBag.deliveredcount = delivered.Count;
+            ViewBag.username = extrest.Registration.username;
             return View();
         }
 

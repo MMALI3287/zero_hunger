@@ -11,24 +11,16 @@ namespace zero_hunger.EF
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class CollectRequest
     {
-
         public int id { get; set; }
         public Nullable<int> restaurant_id { get; set; }
-        [Required]
         public string food_type { get; set; }
-        [Required]
         public int quantity { get; set; }
-        [Required]
         public System.DateTime max_preservation_time { get; set; }
-
         public string collection_status { get; set; }
-
         public Nullable<int> collection_employee_id { get; set; }
-
         public Nullable<System.DateTime> collection_time { get; set; }
     
         public virtual Employee Employee { get; set; }
