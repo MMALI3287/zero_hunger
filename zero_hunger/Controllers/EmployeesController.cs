@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using zero_hunger.Auth;
 using zero_hunger.EF;
 
 namespace zero_hunger.Controllers
 {
+    [EmployeesLogged]
     public class EmployeesController : Controller
     {
         // GET: Employees

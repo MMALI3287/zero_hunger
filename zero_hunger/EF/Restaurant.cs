@@ -11,7 +11,8 @@ namespace zero_hunger.EF
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Restaurant
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,11 +20,15 @@ namespace zero_hunger.EF
         {
             this.CollectRequests = new HashSet<CollectRequest>();
         }
-    
+
         public int id { get; set; }
+        [Required]
         public string name { get; set; }
+        [Required]
         public string location { get; set; }
+        [Required]
         public string supplier_name { get; set; }
+        [Required]
         public string contact_number { get; set; }
         public Nullable<int> Rid { get; set; }
     

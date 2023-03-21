@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using zero_hunger.Auth;
 using zero_hunger.EF;
 using zero_hunger.Models;
 
 namespace zero_hunger.Controllers
 {
+    [AdminLogged]
     public class AdminController : Controller
     {
         // GET: Admin

@@ -11,7 +11,8 @@ namespace zero_hunger.EF
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Registration
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +22,14 @@ namespace zero_hunger.EF
             this.Employees = new HashSet<Employee>();
             this.Restaurants = new HashSet<Restaurant>();
         }
-    
+
+        [Required]
         public int id { get; set; }
+        [Required]
         public string user_type { get; set; }
+        [Required]
         public string username { get; set; }
+        [Required]
         public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

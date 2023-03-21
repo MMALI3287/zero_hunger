@@ -44,7 +44,7 @@
             @Html.LabelFor(model => model.user_type, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select name="user_type" class="form-control">
-                    <option selected disabled>--Select--</option>
+                    <option selected disabled value="@null" >--Select--</option>
                     <option value="Employees">Employees</option>
                     <option value="Restaurents">Restaurents</option>
                 </select>

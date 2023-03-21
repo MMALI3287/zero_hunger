@@ -46,15 +46,33 @@ namespace zero_hunger.Controllers
                 Session["Rid"]=extUser.id;
                 if (extUser.user_type.Equals("Admin"))
                 {
+                    Session["admin"] = "logged";
+                    if (Request["ReturnUrl"] != null)
+                    {
+                        return Redirect(Request["ReturnUrl"]);
+                    }
+                    else
                     return RedirectToAction("Index","Admin");
                 }
                 if (extUser.user_type.Equals("Employees"))
                 {
+                    Session["employees"] = "logged";
+                    if (Request["ReturnUrl"] != null)
+                    {
+                        return Redirect(Request["ReturnUrl"]);
+                    }
+                    else
                     return RedirectToAction("Index","Employees");
                 }
                 if (extUser.user_type.Equals("Restaurents"))
                 {
+                    Session["restaurents"] = "logged";
                     Session["Redirect"] = "";
+                    if (Request["ReturnUrl"] != null)
+                    {
+                        return Redirect(Request["ReturnUrl"]);
+                    }
+                    else
                     return RedirectToAction("Index","Restaurents");
                 }
             }

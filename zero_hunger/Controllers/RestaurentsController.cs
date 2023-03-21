@@ -4,10 +4,12 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
+using zero_hunger.Auth;
 using zero_hunger.EF;
 
 namespace zero_hunger.Controllers
 {
+    [RestaurentsLogged]
     public class RestaurentsController : Controller
     {
         // GET: Restaurents
